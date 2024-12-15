@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapayapaan: Ating Layunin</title>
+    <style>
+        /* Custom CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e0f2fe, #d1fae5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            line-height: 1.6;
+        }
+
+        .peace-card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            max-width: 28rem;
+            width: 100%;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card-header {
+            background-color: #3b82f6;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card-header h1 {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .card-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .message-display {
+            font-size: 1.25rem;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            min-height: 4rem;
+        }
+
+        .message-btn {
+            background-color: #f3f4f6;
+            border: 1px solid #e5e7eb;
+            color: #374151;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .message-btn:hover {
+            background-color: #e5e7eb;
+            transform: translateY(-2px);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .icon {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="peace-card">
+        <div class="card-header">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h1>Kapayapaan: Ating Layunin</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+        </div>
+        
+        <div class="card-content">
+            <p id="messageDisplay" class="message-display"></p>
+            
+            <div class="button-container">
+                <button id="changeMessageBtn" class="message-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                    <span>Susunod na Mensahe</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const campaignMessages = [
+            "Ang kapayapaan ay hindi lamang kawalan ng karahasan, kundi paglikha ng kabutihan.",
+            "Bawat isa ay may papel sa pagbuo ng isang mapayapang lipunan.",
+            "Unawaan, hindi karahasan ang solusyon.",
+            "Magkakaiba tayo, ngunit magkakaisa sa pag-asa para sa kapayapaan.",
+            "Ang pakikinig at pagintindi ang panimula ng kapayapaan.",
+            "Ang pagkakaiba ay hindi dapat maging dahilan ng hidwaan.",
+            "Ang pagmamahal ang pinakamakapangyarihang sandata laban sa karahasan.",
+            "Ang kapayapaan ay sinisimulan sa ating sarili.",
+            "Huwag mong hatulan ang iba sa pamamagitan ng kanilang kaibhan.",
+            "Ang pagkaunawaan ay mas malakas kaysa sa anumang pananakot."
+        ];
+
+        const messageDisplay = document.getElementById('messageDisplay');
+        const changeMessageBtn = document.getElementById('changeMessageBtn');
+
+        let currentMessageIndex = 0;
+
+        function displayCurrentMessage() {
+            messageDisplay.textContent = campaignMessages[currentMessageIndex];
+        }
+
+        displayCurrentMessage();
+
+        changeMessageBtn.addEventListener('click', () => {
+            currentMessageIndex = (currentMessageIndex + 1) % campaignMessages.length;
+            displayCurrentMessage();
+        });
+    </script>
+</body>
+</html>
